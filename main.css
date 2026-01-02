@@ -25,7 +25,7 @@
 
 /*! ClearVision v7.0.1 by ClearVision Team */
 ._2debea61131de3de-info::after {
-    content: "Ashknight" " " "0.0.1";
+    content: "Ashknight" " " " ";
     color: var(--text-muted);
     font-size: 12px;
     line-height: 1.3333333333;
@@ -45,7 +45,7 @@
 }
 
 :is(.theme-dark, .theme-light):not(.platform-osx) .c38106a3f0c3ca76-leading::after {
-    content: "0.0.1";
+    content: "Sancay_";
     position: static;
     margin-top: -5px;
     margin-left: 5px;
@@ -4463,4 +4463,5 @@ code {
     --input-shading: rgba(255, 255, 255, 0.05);
     --normal-text: #dcdcde;
     --muted-text: #86868e;
+
 }
