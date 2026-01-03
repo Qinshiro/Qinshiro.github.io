@@ -1,329 +1,265 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ site.title }}</title>
-    <meta name="description" content="{{ site.description }}">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- Background Particles -->
-    <div id="particles-js"></div>
-    
-    <!-- Header/Navigation -->
-    <header class="header">
-        <nav class="navbar">
-            <div class="logo">
+---
+layout: default
+title: "Ashknight — Mid Bot Developer"
+description: "Mid Bot Developer (JavaScript). Building chatbots, automation bots, and integrations."
+---
+
+<!-- Background Particles -->
+<div id="particles-js"></div>
+
+<!-- Header/Navigation -->
+<header class="header">
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-robot"></i>
+            <span>{{ site.author.name }}</span>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="theme-toggle">
+            <i class="fas fa-moon" id="theme-icon"></i>
+        </div>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1 class="hero-title">
+                <span class="typing-text"></span>
+                <span class="cursor"></span>
+            </h1>
+            <p class="hero-subtitle">{{ site.description }}</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Hubungi Saya
+                </a>
+                <a href="{{ site.social.github }}" target="_blank" class="btn btn-secondary">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="bot-avatar">
                 <i class="fas fa-robot"></i>
-                <span>Ashknight</span>
             </div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="theme-toggle">
-                <i class="fas fa-moon" id="theme-icon"></i>
-            </div>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1 class="hero-title">
-                    <span class="typing-text"></span>
-                    <span class="cursor"></span>
-                </h1>
-                <p class="hero-subtitle">{{ site.description }}</p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">
-                        <i class="fas fa-paper-plane"></i> Hubungi Saya
-                    </a>
-                    <a href="{{ site.social.github }}" target="_blank" class="btn btn-secondary">
-                        <i class="fab fa-github"></i> GitHub
-                    </a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="bot-avatar">
-                    <i class="fas fa-robot"></i>
-                </div>
-                <div class="status-indicator">
-                    <span class="status-dot"></span>
-                    <span class="status-text">Online</span>
-                </div>
+            <div class="status-indicator">
+                <span class="status-dot"></span>
+                <span class="status-text">Online</span>
             </div>
         </div>
-        <div class="scroll-down">
-            <i class="fas fa-chevron-down"></i>
-        </div>
-    </section>
+    </div>
+    <div class="scroll-down">
+        <i class="fas fa-chevron-down"></i>
+    </div>
+</section>
 
-    <!-- About Section -->
-    <section class="section" id="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Halo! Saya <strong>{{ site.author.name }}</strong>, seorang Mid Bot Developer dengan spesialisasi dalam pengembangan bot Discord menggunakan JavaScript.</p>
-                    <p>Saya memiliki pengalaman dalam membuat berbagai jenis bot mulai dari utility, moderation, music, hingga bot dengan sistem ekonomi yang kompleks.</p>
-                    <div class="experience">
-                        <div class="exp-item">
-                            <h3><i class="fas fa-code"></i> Teknologi</h3>
-                            <p>Node.js, Discord.js, MongoDB, Express.js, REST APIs</p>
-                        </div>
-                        <div class="exp-item">
-                            <h3><i class="fas fa-map-marker-alt"></i> Lokasi</h3>
-                            <p>{{ site.author.location }}</p>
-                        </div>
+<!-- About Section -->
+<section class="section" id="about">
+    <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Halo! Saya <strong>{{ site.author.name }}</strong>, seorang {{ site.author.role }} dengan spesialisasi dalam pengembangan bot Discord menggunakan JavaScript.</p>
+                <p>{{ site.author.bio }}</p>
+                <div class="experience">
+                    <div class="exp-item">
+                        <h3><i class="fas fa-code"></i> Teknologi</h3>
+                        <p>Node.js, Discord.js, MongoDB, Express.js, REST APIs</p>
                     </div>
-                </div>
-                <div class="about-stats">
-                    <div class="stat-card">
-                        <h3>50+</h3>
-                        <p>Bot Terpasang</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3>99.8%</h3>
-                        <p>Uptime</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3>24/7</h3>
-                        <p>Support</p>
+                    <div class="exp-item">
+                        <h3><i class="fas fa-map-marker-alt"></i> Lokasi</h3>
+                        <p>{{ site.author.location }}</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section class="section" id="skills">
-        <div class="container">
-            <h2 class="section-title">Skills & Technologies</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3><i class="fab fa-js-square"></i> Core Technologies</h3>
-                    <div class="skills-list">
-                        <div class="skill-item">
-                            <span>JavaScript ES6+</span>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-level="95"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>Node.js</span>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-level="90"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>Discord.js v14</span>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-level="92"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3><i class="fas fa-database"></i> Database & Tools</h3>
-                    <div class="skills-list">
-                        <div class="skill-item">
-                            <span>MongoDB</span>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-level="85"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>REST APIs</span>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-level="88"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>Git & GitHub</span>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-level="90"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3><i class="fas fa-cogs"></i> Bot Features</h3>
-                    <div class="skills-list">
-                        <div class="skill-item">
-                            <span>Music Systems</span>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-level="87"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>Economy Systems</span>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-level="90"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>Dashboard Web</span>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-level="80"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="section" id="projects">
-        <div class="container">
-            <h2 class="section-title">Bot Projects</h2>
-            <div class="projects-grid">
-                {% for bot in site.bots %}
-                <div class="project-card">
-                    <div class="project-header">
-                        <i class="fas fa-robot"></i>
-                        <h3>{{ bot.name }}</h3>
-                        <span class="status-badge {{ bot.status | downcase }}">{{ bot.status }}</span>
-                    </div>
-                    <p class="project-desc">{{ bot.description }}</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">Discord.js</span>
-                        <span class="tech-tag">MongoDB</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="btn-demo">
-                            <i class="fas fa-play-circle"></i> Demo
-                        </a>
-                        <a href="{{ site.social.github }}" target="_blank" class="btn-code">
-                            <i class="fab fa-github"></i> Code
-                        </a>
-                    </div>
+            <div class="about-stats">
+                {% for stat in site.stats %}
+                <div class="stat-card">
+                    <h3>{{ stat.number }}</h3>
+                    <p>{{ stat.text }}</p>
                 </div>
                 {% endfor %}
-                
-                <!-- Template untuk bot tambahan -->
-                <div class="project-card custom-bot">
-                    <div class="project-header">
-                        <i class="fas fa-plus-circle"></i>
-                        <h3>Custom Bot</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section class="section" id="skills">
+    <div class="container">
+        <h2 class="section-title">Skills & Technologies</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3><i class="fab fa-js-square"></i> Core Technologies</h3>
+                <div class="skills-list">
+                    {% for skill in site.skills.core %}
+                    <div class="skill-item">
+                        <span>{{ skill.name }}</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" data-level="{{ skill.level }}"></div>
+                        </div>
                     </div>
-                    <p class="project-desc">Ingin bot custom dengan fitur spesifik? Saya bisa membuatkannya untuk Anda!</p>
-                    <div class="project-links">
-                        <a href="#contact" class="btn-primary">
-                            <i class="fas fa-envelope"></i> Pesan Sekarang
-                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3><i class="fas fa-database"></i> Database & Tools</h3>
+                <div class="skills-list">
+                    {% for skill in site.skills.database %}
+                    <div class="skill-item">
+                        <span>{{ skill.name }}</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" data-level="{{ skill.level }}"></div>
+                        </div>
                     </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3><i class="fas fa-cogs"></i> Bot Features</h3>
+                <div class="skills-list">
+                    {% for skill in site.skills.features %}
+                    <div class="skill-item">
+                        <span>{{ skill.name }}</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" data-level="{{ skill.level }}"></div>
+                        </div>
+                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Contact Section -->
-    <section class="section" id="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Hubungi Saya</h3>
-                    <p>Butuh bot Discord yang powerful dan reliable? Mari berkolaborasi!</p>
-                    
-                    <div class="contact-methods">
-                        <a href="{{ site.social.email }}" class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>Email</span>
-                        </a>
-                        <a href="{{ site.social.discord_server }}" target="_blank" class="contact-item">
-                            <i class="fab fa-discord"></i>
-                            <span>Discord Server</span>
-                        </a>
-                        <a href="{{ site.social.instagram }}" target="_blank" class="contact-item">
-                            <i class="fab fa-instagram"></i>
-                            <span>Instagram</span>
-                        </a>
-                        <a href="{{ site.social.github }}" target="_blank" class="contact-item">
-                            <i class="fab fa-github"></i>
-                            <span>GitHub</span>
-                        </a>
-                    </div>
-                    
-                    <div class="discord-widget">
-                        <h4><i class="fab fa-discord"></i> Join Discord Server</h4>
-                        <p>Bergabunglah dengan server Discord untuk demo, support, dan diskusi.</p>
-                        <a href="{{ site.social.discord_server }}" target="_blank" class="btn-discord">
-                            <i class="fab fa-discord"></i> Join Server
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Nama</label>
-                            <input type="text" id="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email/Discord</label>
-                            <input type="text" id="contact" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="project">Jenis Bot</label>
-                            <select id="project">
-                                <option value="music">Bot Musik</option>
-                                <option value="moderation">Bot Moderasi</option>
-                                <option value="utility">Bot Utility</option>
-                                <option value="economy">Bot Economy</option>
-                                <option value="custom">Custom Bot</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Pesan/Requirement</label>
-                            <textarea id="message" rows="4" required></textarea>
-                        </div>
-                        <button type="submit" class="btn-submit">
-                            <i class="fas fa-paper-plane"></i> Kirim Pesan
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
+<!-- Projects Section -->
+<section class="section" id="projects">
+    <div class="container">
+        <h2 class="section-title">Bot Projects</h2>
+        <div class="projects-grid">
+            {% for project in site.projects %}
+            <div class="project-card">
+                <div class="project-header">
                     <i class="fas fa-robot"></i>
-                    <span>Ashknight</span>
+                    <h3>{{ project.name }}</h3>
+                    <span class="status-badge {% if project.status == 'Aktif' %}aktif{% else %}dalam-pengembangan{% endif %}">
+                        {{ project.status }}
+                    </span>
                 </div>
-                <p class="footer-text">© 2023 {{ site.author.name }} — Mid Bot Developer. All rights reserved.</p>
-                <div class="footer-social">
-                    <a href="{{ site.social.github }}" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="{{ site.social.instagram }}" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="{{ site.social.discord_server }}" target="_blank"><i class="fab fa-discord"></i></a>
+                <p class="project-desc">{{ project.description }}</p>
+                <div class="project-tech">
+                    {% for tech in project.tech %}
+                    <span class="tech-tag">{{ tech }}</span>
+                    {% endfor %}
+                </div>
+                <div class="project-links">
+                    <a href="#" class="btn-demo">
+                        <i class="fas fa-play-circle"></i> Demo
+                    </a>
+                    <a href="{{ site.social.github }}" target="_blank" class="btn-code">
+                        <i class="fab fa-github"></i> Code
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+            
+            <!-- Custom Bot Card -->
+            <div class="project-card custom-bot">
+                <div class="project-header">
+                    <i class="fas fa-plus-circle"></i>
+                    <h3>Custom Bot</h3>
+                </div>
+                <p class="project-desc">Ingin bot custom dengan fitur spesifik? Saya bisa membuatkannya untuk Anda!</p>
+                <div class="project-links">
+                    <a href="#contact" class="btn-primary">
+                        <i class="fas fa-envelope"></i> Pesan Sekarang
+                    </a>
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
+</section>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="script.js"></script>
-</body>
-</html>
+<!-- Contact Section -->
+<section class="section" id="contact">
+    <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>Hubungi Saya</h3>
+                <p>Butuh bot Discord yang powerful dan reliable? Mari berkolaborasi!</p>
+                
+                <div class="contact-methods">
+                    <a href="{{ site.social.email }}" class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email</span>
+                    </a>
+                    <a href="{{ site.social.discord_server }}" target="_blank" class="contact-item">
+                        <i class="fab fa-discord"></i>
+                        <span>Discord Server</span>
+                    </a>
+                    <a href="{{ site.social.instagram }}" target="_blank" class="contact-item">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                    </a>
+                    <a href="{{ site.social.github }}" target="_blank" class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+                
+                <div class="discord-widget">
+                    <h4><i class="fab fa-discord"></i> Join Discord Server</h4>
+                    <p>Bergabunglah dengan server Discord untuk demo, support, dan diskusi.</p>
+                    <a href="{{ site.social.discord_server }}" target="_blank" class="btn-discord">
+                        <i class="fab fa-discord"></i> Join Server
+                    </a>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nama</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email/Discord</label>
+                        <input type="text" id="contact" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="project">Jenis Bot</label>
+                        <select id="project">
+                            <option value="music">Bot Musik</option>
+                            <option value="moderation">Bot Moderasi</option>
+                            <option value="utility">Bot Utility</option>
+                            <option value="economy">Bot Economy</option>
+                            <option value="custom">Custom Bot</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Pesan/Requirement</label>
+                        <textarea id="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i> Kirim Pesan
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
