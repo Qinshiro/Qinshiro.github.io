@@ -1,0 +1,7 @@
+# Tambah file .nojekyll
+touch .nojekyll
+
+# Push semua perubahan
+git add .
+git commit -m "Fix Jekyll Liquid syntax issues"
+git push origin main
