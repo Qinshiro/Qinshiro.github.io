@@ -1,229 +1,319 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="{{ site.lang | default: 'id' }}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bot Developer Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ site.title | default: 'Mid Bot Developer' }}</title>
+  <meta name="description" content="{{ site.description | default: 'Mid Bot Developer using JavaScript' }}" />
+  <meta name="theme-color" content="#0b0f1a" />
+
+  <link rel="stylesheet" href="{{ site.baseurl }}/style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A4%96%3C/text%3E%3C/svg%3E" />
 </head>
+
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <i class="fas fa-robot"></i>
-                <span>BotDev</span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="theme-toggle">
-                <i class="fas fa-moon" id="theme-icon"></i>
-            </div>
-        </nav>
-    </header>
+  <div class="bg-glow" aria-hidden="true"></div>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h1 class="typing-text">Hi, I'm a <span class="highlight">Bot Developer</span></h1>
-                <p class="subtitle">I create intelligent bots and AI solutions for various platforms</p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn primary">View My Work</a>
-                    <a href="#contact" class="btn secondary">Contact Me</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="bot-animation">
-                    <div class="bot-head">
-                        <div class="bot-eye left"></div>
-                        <div class="bot-eye right"></div>
-                    </div>
-                    <div class="bot-body">
-                        <div class="bot-pulse"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <header class="topbar">
+    <a class="brand" href="#home">
+      <span class="brand-dot"></span>
+      <span class="brand-text">{{ site.author.name | default: 'Ashknight' }}</span>
+    </a>
 
-        <section id="about" class="section">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>I specialize in developing intelligent bots for various platforms including Discord, Telegram, Slack, and custom web applications. With expertise in natural language processing and AI integration, I create bots that enhance user experience and automate complex tasks.</p>
-                    <p>My passion lies in creating conversational AI that feels natural and helpful. I keep up with the latest advancements in machine learning and chatbot technologies to deliver cutting-edge solutions.</p>
-                    <div class="experience">
-                        <div class="exp-item">
-                            <i class="fas fa-calendar-alt"></i>
-                            <div>
-                                <h3>5+ Years</h3>
-                                <p>Bot Development Experience</p>
-                            </div>
-                        </div>
-                        <div class="exp-item">
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <h3>50+ Projects</h3>
-                                <p>Completed Successfully</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <div class="code-snippet">
-                        <div class="code-header">
-                            <span class="dot red"></span>
-                            <span class="dot yellow"></span>
-                            <span class="dot green"></span>
-                            <span class="code-title">bot_config.py</span>
-                        </div>
-                        <pre><code>class BotDeveloper:
-    def __init__(self):
-        self.name = "Bot Developer"
-        self.skills = [
-            "Natural Language Processing",
-            "API Integration",
-            "Machine Learning",
-            "Cloud Deployment"
-        ]
-    
-    def create_bot(self, platform, purpose):
-        return IntelligentBot(platform, purpose)</code></pre>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <nav class="nav" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
-        <section id="projects" class="section dark">
-            <h2 class="section-title">My Bot Projects</h2>
-            <div class="projects-container" id="projects-container">
-                <!-- Projects will be loaded dynamically from _config.yml -->
-                <div class="loading">Loading projects...</div>
-            </div>
-        </section>
+    <div class="topbar-actions">
+      <div class="pill" title="Local time (Asia/Jakarta)">
+        <span class="pill-label">WIB</span>
+        <span id="clock" class="pill-value">--:--</span>
+      </div>
+      <button id="themeToggle" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">
+        <span class="icon">☾</span>
+      </button>
+      <button id="menuToggle" class="icon-btn mobile-only" type="button" aria-label="Open menu" title="Menu">
+        <span class="icon">≡</span>
+      </button>
+    </div>
+  </header>
 
-        <section id="skills" class="section">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3><i class="fas fa-code"></i> Languages</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <span>Python</span>
-                            <div class="skill-bar"><div class="skill-level" style="width: 95%"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <span>JavaScript/Node.js</span>
-                            <div class="skill-bar"><div class="skill-level" style="width: 90%"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <span>Java</span>
-                            <div class="skill-bar"><div class="skill-level" style="width: 75%"></div></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-robot"></i> Bot Frameworks</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <span>Dialogflow</span>
-                            <div class="skill-bar"><div class="skill-level" style="width: 90%"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <span>Discord.js</span>
-                            <div class="skill-bar"><div class="skill-level" style="width: 95%"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <span>Telegram Bot API</span>
-                            <div class="skill-bar"><div class="skill-level" style="width: 85%"></div></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-cloud"></i> Deployment</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <span>AWS Lambda</span>
-                            <div class="skill-bar"><div class="skill-level" style="width: 85%"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <span>Docker</span>
-                            <div class="skill-bar"><div class="skill-level" style="width: 80%"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <span>Heroku</span>
-                            <div class="skill-bar"><div class="skill-level" style="width: 75%"></div></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <main id="home" class="container">
+    <section class="hero">
+      <div class="hero-card">
+        <p class="kicker">Bot Developer • JavaScript</p>
 
-        <section id="contact" class="section dark">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Let's build something amazing together</h3>
-                    <p>Have a project in mind? Need a custom bot solution? Feel free to reach out!</p>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>Email</h4>
-                                <p id="contact-email">your.email@example.com</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fab fa-github"></i>
-                            <div>
-                                <h4>GitHub</h4>
-                                <p id="github-username">yourusername</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <form class="contact-form" id="contact-form">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn primary">Send Message <i class="fas fa-paper-plane"></i></button>
-                    <div id="form-message"></div>
-                </form>
-            </div>
-        </section>
-    </main>
+        <h1 class="headline">
+          Hi, I'm <span class="accent">{{ site.author.name | default: 'Ashknight' }}</span>.
+          <br />
+          <span class="typewriter" aria-label="Role"></span>
+        </h1>
 
-    <footer>
-        <div class="footer-content">
-            <div class="logo">
-                <i class="fas fa-robot"></i>
-                <span>BotDev</span>
-            </div>
-            <p>Creating intelligent bots for a smarter future</p>
-            <div class="social-links">
-                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
-            </div>
-            <p class="copyright">&copy; <span id="current-year">2023</span> Bot Developer Portfolio. All rights reserved.</p>
+        <p class="subhead">
+          {{ site.description | default: "I build chatbots, automation bots, and integrations with clean architecture, observability, and reliability in mind." }}
+        </p>
+
+        <div class="cta-row">
+          <a class="btn primary" href="#projects">See Projects</a>
+          <a class="btn ghost" href="#contact">Contact Me</a>
+          <button class="btn soft" id="copyHandle" type="button" title="Copy GitHub">
+            Copy GitHub
+          </button>
         </div>
-    </footer>
 
-    <script src="script.js"></script>
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-value" data-count="3">0</div>
+            <div class="stat-label">Years JS</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value" data-count="20">0</div>
+            <div class="stat-label">Bots Shipped</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value" data-count="99">0</div>
+            <div class="stat-label">Uptime Mindset</div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-side">
+        <div class="glass">
+          <h3>Focus</h3>
+          <ul class="list">
+            <li>Discord bots & automations</li>
+            <li>Message workflows & moderation</li>
+            <li>API integrations & webhooks</li>
+            <li>Reliable deployments</li>
+          </ul>
+        </div>
+
+        <div class="glass">
+          <h3>Currently</h3>
+          <p class="muted">
+            Building modular bot features with Node.js, improving latency, and hardening rate-limit handling.
+          </p>
+          <div class="chips">
+            <span class="chip">Node.js</span>
+            <span class="chip">Discord.js</span>
+            <span class="chip">REST APIs</span>
+            <span class="chip">Mongo/Postgres</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="about" class="section">
+      <div class="section-head">
+        <h2>About</h2>
+        <p class="muted">A short profile and what I value when shipping bots.</p>
+      </div>
+
+      <div class="grid two">
+        <div class="glass reveal">
+          <h3>Who I am</h3>
+          <p>
+            I’m a <strong>Mid Bot Developer</strong> specializing in <strong>JavaScript</strong>.
+            I design and ship bots that are maintainable, observable, and resilient under real traffic.
+          </p>
+          <p class="muted">
+            My priorities: clear command UX, rate-limit safety, structured logging, and predictable deployments.
+          </p>
+        </div>
+
+        <div class="glass reveal">
+          <h3>What I build</h3>
+          <ul class="list">
+            <li>Command-based bots (Discord slash commands)</li>
+            <li>Automation pipelines (webhooks → queues → worker)</li>
+            <li>Moderation tools (filters, audit logs, alerts)</li>
+            <li>Integrations (payments, CRM, analytics, custom APIs)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="section-head">
+        <h2>Skills</h2>
+        <p class="muted">Tooling and competencies I use to deliver production-grade bots.</p>
+      </div>
+
+      <div class="grid three">
+        <div class="card reveal">
+          <h3>JavaScript / Node.js</h3>
+          <p class="muted">Async patterns, modular design, error handling, performance profiling.</p>
+          <div class="meter"><span style="width: 86%"></span></div>
+        </div>
+        <div class="card reveal">
+          <h3>Bot Frameworks</h3>
+          <p class="muted">discord.js, interaction UX, permissions, cooldown, and rate-limit aware flows.</p>
+          <div class="meter"><span style="width: 82%"></span></div>
+        </div>
+        <div class="card reveal">
+          <h3>Integrations</h3>
+          <p class="muted">REST, webhooks, auth patterns, idempotency, retries, and queue workers.</p>
+          <div class="meter"><span style="width: 78%"></span></div>
+        </div>
+        <div class="card reveal">
+          <h3>Data</h3>
+          <p class="muted">MongoDB/Postgres basics, caching, schema discipline, migration hygiene.</p>
+          <div class="meter"><span style="width: 72%"></span></div>
+        </div>
+        <div class="card reveal">
+          <h3>Ops & Reliability</h3>
+          <p class="muted">Logging, alerts, PM2/Docker basics, uptime checks, incident mindset.</p>
+          <div class="meter"><span style="width: 70%"></span></div>
+        </div>
+        <div class="card reveal">
+          <h3>Security</h3>
+          <p class="muted">Token hygiene, permissions, input validation, abuse prevention.</p>
+          <div class="meter"><span style="width: 68%"></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="section-head">
+        <h2>Projects</h2>
+        <p class="muted">Filterable projects. Click a card for details.</p>
+      </div>
+
+      <div class="toolbar">
+        <div class="tabs" role="tablist" aria-label="Project filters">
+          <button class="tab active" type="button" data-filter="all">All</button>
+          <button class="tab" type="button" data-filter="discord">Discord</button>
+          <button class="tab" type="button" data-filter="automation">Automation</button>
+          <button class="tab" type="button" data-filter="integration">Integration</button>
+        </div>
+
+        <div class="search">
+          <input id="projectSearch" type="search" placeholder="Search projects..." autocomplete="off" />
+        </div>
+      </div>
+
+      <div id="projectGrid" class="grid three">
+        <article class="project reveal" data-tags="discord integration" data-title="Moderation Bot">
+          <div class="project-top">
+            <span class="badge">Discord</span>
+            <span class="badge ghost">JS</span>
+          </div>
+          <h3>Moderation Bot</h3>
+          <p class="muted">Auto-filter, warning ladder, audit log, and staff alerts with cooldown safety.</p>
+          <button class="link" type="button" data-open="moderation">View details →</button>
+        </article>
+
+        <article class="project reveal" data-tags="automation integration" data-title="Webhook Router">
+          <div class="project-top">
+            <span class="badge">Automation</span>
+            <span class="badge ghost">Node</span>
+          </div>
+          <h3>Webhook Router</h3>
+          <p class="muted">Routes webhook events into queue workers with retries and idempotency keys.</p>
+          <button class="link" type="button" data-open="router">View details →</button>
+        </article>
+
+        <article class="project reveal" data-tags="discord automation" data-title="Community Utility Bot">
+          <div class="project-top">
+            <span class="badge">Discord</span>
+            <span class="badge ghost">Ops</span>
+          </div>
+          <h3>Community Utility Bot</h3>
+          <p class="muted">Slash commands, role tools, reminders, and status pages with graceful degradation.</p>
+          <button class="link" type="button" data-open="utility">View details →</button>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <p class="muted">Social links (from _config.yml) + quick copy buttons.</p>
+      </div>
+
+      <div class="grid two">
+        <div class="glass reveal">
+          <h3>Social</h3>
+          <div class="social">
+            <a class="social-item" href="{{ site.social.github }}" target="_blank" rel="noreferrer">
+              <span class="social-k">GitHub</span>
+              <span class="social-v" id="githubLink">{{ site.social.github }}</span>
+            </a>
+            <a class="social-item" href="{{ site.social.instagram }}" target="_blank" rel="noreferrer">
+              <span class="social-k">Instagram</span>
+              <span class="social-v">{{ site.social.instagram }}</span>
+            </a>
+            <a class="social-item" href="{{ site.social.discord_server }}" target="_blank" rel="noreferrer">
+              <span class="social-k">Discord Server</span>
+              <span class="social-v">{{ site.social.discord_server }}</span>
+            </a>
+            <a class="social-item" href="{{ site.social.email }}">
+              <span class="social-k">Email</span>
+              <span class="social-v">{{ site.social.email }}</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="glass reveal">
+          <h3>Message</h3>
+          <p class="muted">
+            For collaboration: bots, automation, integrations. Provide scope + platform + timeline.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn primary" href="{{ site.social.email }}">Email</a>
+            <a class="btn ghost" href="{{ site.social.discord_server }}" target="_blank" rel="noreferrer">Discord</a>
+            <button class="btn soft" id="copyEmail" type="button">Copy Email</button>
+          </div>
+
+          <p class="footnote muted">
+            Built on GitHub Pages. Theme toggle and interactions are pure JS.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>© <span id="year"></span> {{ site.author.name | default: 'Ashknight' }}</span>
+      <span class="sep">•</span>
+      <a href="#home" class="muted">Back to top</a>
+    </footer>
+  </main>
+
+  <!-- Mobile drawer -->
+  <div id="drawer" class="drawer" aria-hidden="true">
+    <div class="drawer-panel">
+      <div class="drawer-head">
+        <strong>Menu</strong>
+        <button id="drawerClose" class="icon-btn" type="button" aria-label="Close menu">×</button>
+      </div>
+      <div class="drawer-links">
+        <a href="#about" class="drawer-link">About</a>
+        <a href="#skills" class="drawer-link">Skills</a>
+        <a href="#projects" class="drawer-link">Projects</a>
+        <a href="#contact" class="drawer-link">Contact</a>
+      </div>
+    </div>
+    <div class="drawer-backdrop" data-close="drawer"></div>
+  </div>
+
+  <!-- Project modal -->
+  <dialog id="modal" class="modal">
+    <form method="dialog" class="modal-card">
+      <div class="modal-head">
+        <h3 id="modalTitle">Project</h3>
+        <button class="icon-btn" value="cancel" aria-label="Close">×</button>
+      </div>
+      <div id="modalBody" class="modal-body"></div>
+      <div class="modal-actions">
+        <button class="btn soft" value="cancel" type="submit">Close</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="{{ site.baseurl }}/script.js"></script>
 </body>
 </html>
