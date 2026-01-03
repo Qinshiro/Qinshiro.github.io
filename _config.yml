@@ -1,0 +1,19 @@
+title: "Bot Developer Portfolio"
+description: "Professional bot development services and AI solutions"
+theme: jekyll-theme-cayman
+baseurl: ""
+url: "https://qinshiro.github.io"
+github_username: "Qinshiro"
+email: "gtpsash@gmail.com"
+twitter_username: "yourtwitter"
+linkedin_username: "yourlinkedin"
+bot_projects:
+  - name: "AI Customer Support Bot"
+    description: "NLP-powered customer service assistant"
+    tech: ["Python", "TensorFlow", "Dialogflow"]
+  - name: "Discord Community Moderator"
+    description: "Automated moderation and engagement bot"
+    tech: ["Node.js", "Discord.js", "MongoDB"]
+  - name: "Telegram Crypto Tracker"
+    description: "Cryptocurrency price tracking and alerts"
+    tech: ["Python", "Telegram API", "Binance API"]
