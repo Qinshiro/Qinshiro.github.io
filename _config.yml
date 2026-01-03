@@ -23,11 +23,12 @@ social:
 bots:
   - name: "UtilityBot"
     description: "Bot serbaguna untuk manajemen server dan automasi"
-    status: "Aktif"
-    
-  - name: "MusicMaster"
-    description: "Bot musik dengan kualitas streaming tinggi"
     status: "Dalam Pengembangan"
+
+#  - name: "MusicMaster"
+#    description: "Bot musik dengan kualitas streaming tinggi"
+#    status: "Dalam Pengembangan"
+
 
 # SEO dasar
 lang: "id-ID"
