@@ -1,42 +1,104 @@
-# GitHub Pages — Mid Bot Developer (JavaScript)
+# Ashknight - Mid Bot Developer Portfolio
 
-This is a dynamic personal landing page for GitHub Pages (github.io).
-Features:
-- Typewriter headline
-- Scroll reveal animation
-- Project filtering + search
-- Project details modal
-- Light/Dark mode toggle (saved via localStorage)
-- WIB clock (Asia/Jakarta)
-- Responsive layout + mobile drawer menu
+A dynamic GitHub Pages portfolio website showcasing my work as a Mid Bot Developer specializing in JavaScript.
 
-## Setup
-1. Create a repository:
-   - For User Pages: `USERNAME.github.io`
-2. Put these files in the repository root:
-   - `_config.yml`, `index.html`, `style.css`, `script.js`
-3. Add your background image:
-   - `myTheme/V1/Assets/background.png`
-   - If your filename differs, update `--bg-image` in `style.css`.
+## Features
 
-## Configure
-Edit `_config.yml`:
-- `title`, `description`
-- `url: "https://USERNAME.github.io"`
-- `social` links (Instagram, Discord Server, GitHub, Email)
+- **Responsive Design**: Works on all devices from mobile to desktop
+- **Dynamic Content**: JavaScript-powered interactive elements
+- **Theme Toggle**: Switch between dark and light modes
+- **Animated Stats**: Count-up animations for statistics
+- **Typewriter Effect**: Dynamic text animation in hero section
+- **Project Filtering**: Filter projects by category
+- **Animated Skill Bars**: Visual representation of technical skills
+- **Contact Form**: Interactive contact form with validation
+- **Smooth Scrolling**: Smooth navigation between sections
 
-## Enable GitHub Pages
-Repo → Settings → Pages:
-- Source: `Deploy from a branch`
-- Branch: `main` (root)
+## Project Structure
 
-Then open:
-`https://USERNAME.github.io`
+```
+myTheme/V1/
+├── Assets/
+│   └── background.png        # Background image
+├── _config.yml               # Jekyll configuration
+├── index.html                # Main HTML file
+├── style.css                 # Stylesheet
+├── script.js                 # JavaScript functionality
+└── README.md                 # This file
+```
 
-## Customize content
-- Update section text directly in `index.html`
-- Add more project cards in `#projectGrid` and add matching modal entry in `script.js`
+## Setup Instructions
 
-## Notes
-- This site works with GitHub Pages + Jekyll (Liquid variables in HTML).
-- If you want purely static HTML, replace `{{ ... }}` with plain text.
+1. **Clone or Download** the repository to your local machine
+2. **Upload to GitHub**:
+   - Create a new repository named `username.github.io` (replace `username` with your GitHub username)
+   - Upload all files to the repository
+3. **Customize Content**:
+   - Update `_config.yml` with your personal information
+   - Replace `Assets/background.png` with your own background image
+   - Modify `index.html`, `style.css`, and `script.js` as needed
+4. **GitHub Pages** will automatically deploy your site at `https://username.github.io`
+
+## Customization
+
+### Update Personal Information
+Edit the `_config.yml` file to update:
+- Name, role, and location
+- Social media links
+- Site title and description
+
+### Change Colors
+Modify CSS variables in `style.css`:
+```css
+:root {
+    --primary-color: #5865F2;
+    --secondary-color: #57F287;
+    --dark-color: #1e1e2e;
+    --light-color: #f8f9fa;
+}
+```
+
+### Add Projects
+Update the `projects` array in `script.js`:
+```javascript
+const projects = [
+    {
+        id: 1,
+        title: "Project Name",
+        description: "Project description",
+        type: "category", // discord, automation, or chatbot
+        technologies: ["Tech 1", "Tech 2"],
+        status: "completed" // or "in-progress"
+    }
+];
+```
+
+### Update Skills
+Edit the skills section in `index.html` to reflect your actual skills and proficiency levels.
+
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## Technologies Used
+
+- HTML5
+- CSS3 (with CSS Variables for theming)
+- Vanilla JavaScript (ES6+)
+- Font Awesome Icons
+- Google Fonts (Poppins & Roboto Mono)
+
+## License
+
+This project is open source and available under the MIT License.
+
+## Contact
+
+- **Name**: Ashknight
+- **Role**: Mid Bot Developer
+- **GitHub**: [Qinshiro](https://github.com/Qinshiro)
+- **Discord**: [Join Server](https://discord.gg/WkGYZYZ3Sn)
+- **Email**: gtpsash@gmail.com
