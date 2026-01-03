@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bot Developer Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-robot"></i>
+                <span>BotDev</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="theme-toggle">
+                <i class="fas fa-moon" id="theme-icon"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1 class="typing-text">Hi, I'm a <span class="highlight">Bot Developer</span></h1>
+                <p class="subtitle">I create intelligent bots and AI solutions for various platforms</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn primary">View My Work</a>
+                    <a href="#contact" class="btn secondary">Contact Me</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="bot-animation">
+                    <div class="bot-head">
+                        <div class="bot-eye left"></div>
+                        <div class="bot-eye right"></div>
+                    </div>
+                    <div class="bot-body">
+                        <div class="bot-pulse"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I specialize in developing intelligent bots for various platforms including Discord, Telegram, Slack, and custom web applications. With expertise in natural language processing and AI integration, I create bots that enhance user experience and automate complex tasks.</p>
+                    <p>My passion lies in creating conversational AI that feels natural and helpful. I keep up with the latest advancements in machine learning and chatbot technologies to deliver cutting-edge solutions.</p>
+                    <div class="experience">
+                        <div class="exp-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <div>
+                                <h3>5+ Years</h3>
+                                <p>Bot Development Experience</p>
+                            </div>
+                        </div>
+                        <div class="exp-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h3>50+ Projects</h3>
+                                <p>Completed Successfully</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="code-snippet">
+                        <div class="code-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                            <span class="code-title">bot_config.py</span>
+                        </div>
+                        <pre><code>class BotDeveloper:
+    def __init__(self):
+        self.name = "Bot Developer"
+        self.skills = [
+            "Natural Language Processing",
+            "API Integration",
+            "Machine Learning",
+            "Cloud Deployment"
+        ]
+    
+    def create_bot(self, platform, purpose):
+        return IntelligentBot(platform, purpose)</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section dark">
+            <h2 class="section-title">My Bot Projects</h2>
+            <div class="projects-container" id="projects-container">
+                <!-- Projects will be loaded dynamically from _config.yml -->
+                <div class="loading">Loading projects...</div>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Languages</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span>Python</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 95%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>JavaScript/Node.js</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 90%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Java</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 75%"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-robot"></i> Bot Frameworks</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span>Dialogflow</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 90%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Discord.js</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 95%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Telegram Bot API</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 85%"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-cloud"></i> Deployment</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span>AWS Lambda</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 85%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Docker</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 80%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Heroku</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 75%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section dark">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Let's build something amazing together</h3>
+                    <p>Have a project in mind? Need a custom bot solution? Feel free to reach out!</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p id="contact-email">your.email@example.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-github"></i>
+                            <div>
+                                <h4>GitHub</h4>
+                                <p id="github-username">yourusername</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn primary">Send Message <i class="fas fa-paper-plane"></i></button>
+                    <div id="form-message"></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="logo">
+                <i class="fas fa-robot"></i>
+                <span>BotDev</span>
+            </div>
+            <p>Creating intelligent bots for a smarter future</p>
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+            </div>
+            <p class="copyright">&copy; <span id="current-year">2023</span> Bot Developer Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
