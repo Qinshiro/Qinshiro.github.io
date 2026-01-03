@@ -1,54 +1,76 @@
-# Site settings
-title: "Ashknight — Mid Bot Developer"
-description: "Mid Bot Developer (JavaScript). Building chatbots, automation bots, and integrations."
-baseurl: ""
-url: "https://qinshiro.github.io"
-github_username: Qinshiro
+# ============================================
+# GITHUB PAGES PORTFOLIO CONFIGURATION
+# ============================================
 
-# Build settings
-markdown: kramdown
-permalink: pretty
-plugins:
-  - jekyll-seo-tag
-  - jekyll-sitemap
+# Site Settings
+title: "Ashknight — Mid Bot Developer"  # Judul website
+description: "Mid Bot Developer (JavaScript). Building chatbots, automation bots, and integrations."  # Meta description
+baseurl: ""  # Biarkan kosong untuk user pages
+url: "https://qinshiro.github.io"  # URL website lengkap
 
-# Author settings
+# GitHub Username
+github_username: Qinshiro  # Untuk link GitHub otomatis
+
+# ============================================
+# BUILD SETTINGS (Jekyll Configuration)
+# ============================================
+markdown: kramdown  # Markdown processor
+permalink: pretty  # Format URL post
+plugins:  # Jekyll plugins
+  - jekyll-seo-tag  # Plugin SEO otomatis
+  - jekyll-sitemap  # Generate sitemap.xml
+
+# ============================================
+# AUTHOR INFORMATION
+# ============================================
 author:
-  name: "Ashknight"
-  role: "Mid Bot Developer"
-  location: "Indonesia (Asia/Jakarta)"
-  bio: "Spesialis pengembangan bot Discord dengan fokus pada fungsionalitas yang powerful dan mudah digunakan."
+  name: "Ashknight"  # Nama lengkap Anda
+  role: "Mid Bot Developer"  # Posisi/profesi
+  location: "Indonesia (Asia/Jakarta)"  # Lokasi dan timezone
+  bio: "Spesialis pengembangan bot Discord dengan fokus pada fungsionalitas yang powerful dan mudah digunakan."  # Bio singkat
 
-# Social media links
+# ============================================
+# SOCIAL MEDIA LINKS
+# ============================================
 social:
-  instagram: "https://instagram.com/sancayw_"
-  discord_server: "https://discord.gg/WkGYZYZ3Sn"
-  github: "https://github.com/Qinshiro"
-  email: "mailto:gtpsash@gmail.com"
+  instagram: "https://instagram.com/sancayw_"  # Instagram profile
+  discord_server: "https://discord.gg/WkGYZYZ3Sn"  # Discord server invite
+  github: "https://github.com/Qinshiro"  # GitHub profile
+  email: "mailto:gtpsash@gmail.com"  # Email dengan mailto: prefix
 
-# Bot projects
+# ============================================
+# BOT PROJECTS PORTFOLIO
+# Format: name, description, status, tech stack
+# ============================================
 projects:
+#   Project 1: Utility Bot
   - name: "UtilityBot"
     description: "Bot serbaguna untuk manajemen server dan automasi"
-    status: "Aktif"
-    tech: ["Node.js", "Discord.js", "MongoDB"]
+    status: "Dalam Pengembangan"  # Masih dalam development
+#   status: "Aktif"  # Status: Aktif/Dalam Pengembangan/Archive
+    tech: ["Node.js", "Discord.js", "MongoDB"]  # Technologies used
     
-  - name: "MusicMaster"
-    description: "Bot musik dengan kualitas streaming tinggi"
-    status: "Dalam Pengembangan"
-    tech: ["Node.js", "Discord.js", "Lavalink"]
+#   Project 2: Music Bot
+#  - name: "MusicMaster"
+#    description: "Bot musik dengan kualitas streaming tinggi"
+#    status: "Aktif"  # Status: Aktif/Dalam Pengembangan/Archive
+#    status: "Dalam Pengembangan"  # Masih dalam development
+#    tech: ["Node.js", "Discord.js", "Lavalink"]  # Lavalink untuk audio
 
-# Skills data
+# ============================================
+# SKILLS DATA (untuk skill bars)
+# Format: category -> [name, percentage]
+# ============================================
 skills:
-  core:
+  core:  # Core technologies
     - name: "JavaScript ES6+"
-      level: 95
+      level: 95  # Persentase skill (0-100)
     - name: "Node.js"
       level: 90
     - name: "Discord.js v14"
       level: 92
   
-  database:
+  database:  # Database & tools
     - name: "MongoDB"
       level: 85
     - name: "REST APIs"
@@ -56,7 +78,7 @@ skills:
     - name: "Git & GitHub"
       level: 90
   
-  features:
+  features:  # Bot feature specialties
     - name: "Music Systems"
       level: 87
     - name: "Economy Systems"
@@ -64,16 +86,28 @@ skills:
     - name: "Dashboard Web"
       level: 80
 
-# Stats
+# ============================================
+# STATISTICS (untuk about section)
+# ============================================
 stats:
-  - number: "50+"
-    text: "Bot Terpasang"
+  - number: "50+"  # Angka/statistic
+    text: "Bot Terpasang"  # Deskripsi statistic
   - number: "99.8%"
     text: "Uptime"
   - number: "24/7"
     text: "Support"
 
-# Site settings
-lang: "id-ID"
-timezone: "Asia/Jakarta"
-google_analytics: ""  # Isi dengan GA ID jika ada
+# ============================================
+# SITE SETTINGS
+# ============================================
+lang: "id-ID"  # Language code (Indonesian)
+timezone: "Asia/Jakarta"  # Timezone
+google_analytics: ""  # GA Tracking ID (isi jika punya)
+
+# ============================================
+# DEPLOYMENT NOTES:
+# 1. File ini akan diproses oleh Jekyll
+# 2. Data diakses dengan Liquid: {{ site.title }}
+# 3. Pastikan format YAML benar (spasi matters)
+# 4. Restart server jika edit lokal: bundle exec jekyll serve
+# ============================================
