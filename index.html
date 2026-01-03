@@ -3,358 +3,331 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if site.title %}{{ site.title }}{% else %}Ashknight — Mid Bot Developer{% endif %}</title>
-    <meta name="description" content="{% if site.description %}{{ site.description }}{% else %}Mid Bot Developer (JavaScript). Building chatbots, automation bots, and integrations.{% endif %}">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Ashknight — Mid Bot Developer">
-    <meta property="og:description" content="Mid Bot Developer (JavaScript). Building chatbots, automation bots, and integrations.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://qinshiro.github.io">
-    
-    <!-- CSS -->
+    <title>Ashknight — Mid Bot Developer</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
 </head>
 <body>
-    <!-- Background Overlay -->
-    <div class="bg-overlay"></div>
-    
-    <!-- Header/Navigation -->
-    <header class="header">
+    <!-- Background Elements -->
+    <div class="background-elements">
+        <div class="bg-element-1"></div>
+        <div class="bg-element-2"></div>
+        <div class="bg-element-3"></div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header>
         <nav class="navbar">
-            <div class="logo">
-                <span class="logo-icon">🤖</span>
+            <div class="nav-brand">
+                <span class="logo-icon"><i class="fas fa-robot"></i></span>
                 <span class="logo-text">Ashknight</span>
             </div>
-            <ul class="nav-links">
+            <ul class="nav-menu">
                 <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-            <div class="theme-toggle">
-                <i class="fas fa-moon" id="theme-icon"></i>
-            </div>
-            <div class="menu-toggle">
-                <i class="fas fa-bars"></i>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
         </nav>
     </header>
 
     <!-- Main Content -->
-    <main class="container">
+    <main>
         <!-- Hero Section -->
-        <section id="home" class="section hero-section">
+        <section id="home" class="hero">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1 class="hero-title">Hello, I'm <span class="highlight">Ashknight</span></h1>
-                    <div class="typewriter">
-                        <h2 class="hero-subtitle">I'm a <span id="typewriter-text"></span></h2>
-                    </div>
-                    <p class="hero-description">
-                        A passionate <strong>Mid Bot Developer</strong> specializing in creating intelligent, efficient, and scalable bot solutions using JavaScript. I build chatbots, automation systems, and Discord integrations.
-                    </p>
+                    <h1 class="hero-title">I'm a <span class="highlight">Mid Bot Developer</span></h1>
+                    <p class="hero-subtitle">Building intelligent chatbots, automation bots, and seamless integrations with JavaScript</p>
                     <div class="hero-buttons">
                         <a href="#projects" class="btn btn-primary">View My Work</a>
-                        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                        <a href="#contact" class="btn btn-secondary">Contact Me</a>
                     </div>
                 </div>
-                <div class="hero-image">
-                    <div class="bot-avatar">
-                        <div class="avatar-icon">🤖</div>
-                        <div class="avatar-status">
-                            <span class="status-indicator online"></span>
-                            <span class="status-text">Online</span>
+                <div class="hero-visual">
+                    <div class="bot-visual">
+                        <div class="bot-head">
+                            <div class="bot-eye left-eye"></div>
+                            <div class="bot-eye right-eye"></div>
+                        </div>
+                        <div class="bot-body">
+                            <div class="bot-code">
+                                <span class="code-line">function bot() {</span>
+                                <span class="code-line">&nbsp;&nbsp;return "Hello!";</span>
+                                <span class="code-line">}</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Stats -->
-            <div class="stats-container">
-                <div class="stat-card">
-                    <div class="stat-number" id="bots-developed">5+</div>
-                    <div class="stat-label">Bots Developed</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="projects-completed">12+</div>
-                    <div class="stat-label">Projects Completed</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="experience-years">3+</div>
-                    <div class="stat-label">Years Experience</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="clients-served">8+</div>
-                    <div class="stat-label">Clients Served</div>
-                </div>
+            <div class="scroll-indicator">
+                <span>Scroll Down</span>
+                <i class="fas fa-chevron-down"></i>
             </div>
         </section>
 
         <!-- About Section -->
-        <section id="about" class="section about-section">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        I'm a <strong>Mid-level Bot Developer</strong> with over 3 years of experience building various types of bots and automation systems. My expertise lies in JavaScript, particularly with Node.js ecosystem.
-                    </p>
-                    <p>
-                        I specialize in creating Discord bots, chatbots, automation scripts, and integration solutions that help businesses and communities streamline their operations.
-                    </p>
-                    <div class="about-details">
-                        <div class="detail-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Location: <strong>Indonesia (Asia/Jakarta)</strong></span>
+        <section id="about" class="section about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Hi, I'm <strong>Ashknight</strong>, a Mid-Level Bot Developer specializing in JavaScript-based solutions. I create intelligent chatbots, automation systems, and integration tools that help businesses streamline their operations.</p>
+                        <p>With expertise in various bot frameworks and APIs, I develop scalable solutions that deliver real value. I'm passionate about creating bots that not only function efficiently but also provide excellent user experiences.</p>
+                        <div class="about-info">
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Indonesia (Asia/Jakarta)</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-code"></i>
+                                <span>JavaScript Specialist</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>3+ Years Experience</span>
+                            </div>
                         </div>
-                        <div class="detail-item">
-                            <i class="fas fa-code"></i>
-                            <span>Specialization: <strong>Bot Development</strong></span>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-card">
+                            <div class="stat-number" data-target="50">0</div>
+                            <div class="stat-label">Bots Created</div>
                         </div>
-                        <div class="detail-item">
-                            <i class="fas fa-language"></i>
-                            <span>Languages: <strong>JavaScript, Python, Java</strong></span>
+                        <div class="stat-card">
+                            <div class="stat-number" data-target="95">0</div>
+                            <div class="stat-label">Success Rate</div>
                         </div>
-                        <div class="detail-item">
-                            <i class="fas fa-tools"></i>
-                            <span>Frameworks: <strong>Node.js, Discord.js, Express.js</strong></span>
+                        <div class="stat-card">
+                            <div class="stat-number" data-target="30">0</div>
+                            <div class="stat-label">Happy Clients</div>
                         </div>
                     </div>
                 </div>
-                <div class="about-image">
-                    <div class="code-snippet">
-                        <div class="code-header">
-                            <span class="code-title">botConfig.js</span>
-                            <div class="code-dots">
-                                <span class="dot red"></span>
-                                <span class="dot yellow"></span>
-                                <span class="dot green"></span>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section skills">
+            <div class="container">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3><i class="fab fa-js-square"></i> JavaScript Ecosystem</h3>
+                        <div class="skill-list">
+                            <div class="skill-item">
+                                <span class="skill-name">Node.js</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-level="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Discord.js</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-level="85"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Bot Frameworks</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-level="80"></div>
+                                </div>
                             </div>
                         </div>
-                        <pre class="code-content">
-<span class="code-keyword">const</span> <span class="code-var">DiscordBot</span> = {
-  <span class="code-prop">name</span>: <span class="code-string">"AshBot"</span>,
-  <span class="code-prop">version</span>: <span class="code-string">"2.1.0"</span>,
-  <span class="code-prop">features</span>: [
-    <span class="code-string">"Music Streaming"</span>,
-    <span class="code-string">"Auto-Moderation"</span>,
-    <span class="code-string">"Custom Commands"</span>,
-    <span class="code-string">"API Integrations"</span>
-  ],
-  <span class="code-prop">start</span>: <span class="code-keyword">function</span>() {
-    <span class="code-func">console</span>.<span class="code-func">log</span>(
-      <span class="code-string">`🤖 ${this.name} v${this.version} is running...`</span>
-    );
-  }
-};</pre>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-cogs"></i> Bot Development</h3>
+                        <div class="skill-list">
+                            <div class="skill-item">
+                                <span class="skill-name">Chatbots</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-level="88"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Automation Bots</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-level="82"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">API Integration</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-level="87"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-database"></i> Backend & Database</h3>
+                        <div class="skill-list">
+                            <div class="skill-item">
+                                <span class="skill-name">MongoDB</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-level="78"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">REST APIs</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-level="85"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">WebSockets</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-level="75"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="section projects-section">
-            <h2 class="section-title">My Bot Projects</h2>
-            <div class="projects-container" id="projects-container">
-                <!-- Projects will be loaded dynamically via JavaScript -->
-            </div>
-            <div class="project-filters">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="discord">Discord Bots</button>
-                <button class="filter-btn" data-filter="automation">Automation</button>
-                <button class="filter-btn" data-filter="chatbot">Chatbots</button>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="section skills-section">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3 class="skill-category-title">Core Technologies</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">JavaScript</span>
-                                <span class="skill-percent">95%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-level="95"></div>
-                            </div>
+        <section id="projects" class="section projects">
+            <div class="container">
+                <h2 class="section-title">Recent Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <i class="fab fa-discord project-icon"></i>
+                            <h3>Discord Moderation Bot</h3>
                         </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Node.js</span>
-                                <span class="skill-percent">90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-level="90"></div>
-                            </div>
+                        <p class="project-desc">Advanced moderation bot with automated moderation, logging, and custom commands system for Discord communities.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Discord.js</span>
+                            <span class="tech-tag">MongoDB</span>
                         </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Discord.js</span>
-                                <span class="skill-percent">88%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-level="88"></div>
-                            </div>
+                        <div class="project-status">
+                            <span class="status-badge live">Live</span>
                         </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">API Integration</span>
-                                <span class="skill-percent">85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-level="85"></div>
-                            </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-header">
+                            <i class="fas fa-comments project-icon"></i>
+                            <h3>Customer Support Chatbot</h3>
+                        </div>
+                        <p class="project-desc">AI-powered chatbot for handling customer inquiries, FAQs, and support ticket creation for e-commerce platforms.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Dialogflow</span>
+                            <span class="tech-tag">Express.js</span>
+                        </div>
+                        <div class="project-status">
+                            <span class="status-badge live">Live</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-header">
+                            <i class="fas fa-tasks project-icon"></i>
+                            <h3>Workflow Automation Bot</h3>
+                        </div>
+                        <p class="project-desc">Automation bot that integrates with various APIs to streamline business processes and reduce manual work.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">REST APIs</span>
+                            <span class="tech-tag">Webhooks</span>
+                        </div>
+                        <div class="project-status">
+                            <span class="status-badge in-progress">In Progress</span>
                         </div>
                     </div>
                 </div>
-                
-                <div class="skill-category">
-                    <h3 class="skill-category-title">Additional Skills</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Express.js</span>
-                        <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">REST APIs</span>
-                        <span class="skill-tag">WebSocket</span>
-                        <span class="skill-tag">Git/GitHub</span>
-                        <span class="skill-tag">Linux Server</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">React Basics</span>
-                    </div>
-                    
-                    <h3 class="skill-category-title" style="margin-top: 2rem;">Bot Capabilities</h3>
-                    <div class="capabilities-list">
-                        <div class="capability">
-                            <i class="fas fa-robot"></i>
-                            <span>Chatbots & AI Integration</span>
-                        </div>
-                        <div class="capability">
-                            <i class="fas fa-music"></i>
-                            <span>Music & Media Bots</span>
-                        </div>
-                        <div class="capability">
-                            <i class="fas fa-shield-alt"></i>
-                            <span>Moderation & Security</span>
-                        </div>
-                        <div class="capability">
-                            <i class="fas fa-cogs"></i>
-                            <span>Automation & Scripting</span>
-                        </div>
-                    </div>
+                <div class="section-footer">
+                    <p>Want to see more projects? Check out my <a href="https://github.com/Qinshiro" target="_blank">GitHub</a>.</p>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="section contact-section">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3 class="contact-subtitle">Let's Build Something Amazing</h3>
-                    <p class="contact-description">
-                        Interested in collaborating on a bot project? Need custom automation solutions? Feel free to reach out!
-                    </p>
-                    
-                    <div class="social-links">
-                        <a href="https://github.com/Qinshiro" class="social-link" target="_blank">
-                            <i class="fab fa-github"></i>
-                            <span>GitHub</span>
-                        </a>
-                        <a href="https://discord.gg/WkGYZYZ3Sn" class="social-link" target="_blank">
-                            <i class="fab fa-discord"></i>
-                            <span>Discord Server</span>
-                        </a>
-                        <a href="https://instagram.com/sancayw_" class="social-link" target="_blank">
-                            <i class="fab fa-instagram"></i>
-                            <span>Instagram</span>
-                        </a>
-                        <a href="mailto:gtpsash@gmail.com" class="social-link">
-                            <i class="fas fa-envelope"></i>
-                            <span>Email</span>
-                        </a>
-                    </div>
-                    
-                    <div class="contact-status">
-                        <div class="status-indicator online"></div>
-                        <div class="status-text">
-                            <strong>Current Status:</strong> Available for new projects
+        <section id="contact" class="section contact">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <p>Interested in working together or have a bot project in mind? Feel free to reach out through any of these platforms:</p>
+                        <div class="social-links">
+                            <a href="https://instagram.com/sancayw_" target="_blank" class="social-link instagram">
+                                <i class="fab fa-instagram"></i>
+                                <span>Instagram</span>
+                            </a>
+                            <a href="https://discord.gg/WkGYZYZ3Sn" target="_blank" class="social-link discord">
+                                <i class="fab fa-discord"></i>
+                                <span>Discord Server</span>
+                            </a>
+                            <a href="https://github.com/Qinshiro" target="_blank" class="social-link github">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="mailto:gtpsash@gmail.com" class="social-link email">
+                                <i class="fas fa-envelope"></i>
+                                <span>Email</span>
+                            </a>
+                        </div>
+                        <div class="contact-note">
+                            <p><i class="fas fa-clock"></i> Response time: Usually within 24 hours (Jakarta Time)</p>
                         </div>
                     </div>
-                </div>
-                
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <select id="subject">
-                                <option value="bot-development">Bot Development</option>
-                                <option value="consultation">Consultation</option>
-                                <option value="collaboration">Collaboration</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Your Message</label>
-                            <textarea id="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block">
-                            <i class="fas fa-paper-plane"></i> Send Message
-                        </button>
-                        <div id="form-message" class="form-message"></div>
-                    </form>
+                    <div class="contact-form">
+                        <h3>Send a Message</h3>
+                        <form id="messageForm">
+                            <div class="form-group">
+                                <input type="text" id="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" rows="5" placeholder="Tell me about your bot project..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                            <p class="form-note">Note: This form is for demonstration. For actual contact, please use the social links.</p>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <span class="logo-icon">🤖</span>
-                <span class="logo-text">Ashknight</span>
-            </div>
-            <p class="footer-tagline">Mid Bot Developer • JavaScript Specialist</p>
-            <div class="footer-links">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#skills">Skills</a>
-                <a href="#contact">Contact</a>
-            </div>
-            <div class="footer-copyright">
-                <p>&copy; <span id="current-year"></span> Ashknight. All rights reserved.</p>
-                <p>Built with ❤️ using JavaScript, HTML & CSS</p>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon"><i class="fas fa-robot"></i></span>
+                    <span class="logo-text">Ashknight</span>
+                    <p class="footer-tagline">Mid Bot Developer • JavaScript Specialist</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-copyright">
+                    <p>&copy; <span id="currentYear"></span> Ashknight. All rights reserved.</p>
+                    <p>Built with <i class="fas fa-heart"></i> and JavaScript</p>
+                </div>
             </div>
         </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="back-to-top" class="back-to-top">
+    <button id="backToTop" class="back-to-top">
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
