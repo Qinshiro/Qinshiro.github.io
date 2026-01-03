@@ -13,11 +13,30 @@ author:
   location: "Indonesia (Asia/Jakarta)"
 
 social:
-  instagram: "https://instagram.com/USERNAME_INSTAGRAM"
-  discord_server: "https://discord.gg/INVITE_CODE"
+  instagram: "https://instagram.com/sancayw_"
+  discord_server: "https://discord.gg/WkGYZYZ3Sn"
   github: "https://github.com/Qinshiro"
   email: "mailto:gtpsash@gmail.com"
 
 # SEO dasar
 lang: "id"
 timezone: "Asia/Jakarta"
+
+# Warna tema
+colors:
+  primary: "#5865F2"
+  secondary: "#57F287"
+  dark: "#1e1e2e"
+  light: "#f8f9fa"
+
+# Bot projects
+projects:
+  - name: "Discord Music Bot"
+    description: "Bot musik dengan playlist, queue, dan berbagai sumber musik"
+    tech: ["Node.js", "Discord.js", "FFmpeg"]
+  - name: "Automation Bot"
+    description: "Bot otomatisasi untuk manajemen server Discord"
+    tech: ["JavaScript", "MongoDB", "REST API"]
+  - name: "Multi-purpose Bot"
+    description: "Bot serbaguna dengan 100+ commands untuk berbagai keperluan"
+    tech: ["Node.js", "Express", "WebSocket"]
