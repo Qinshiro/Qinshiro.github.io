@@ -1,38 +1,79 @@
+# Site settings
 title: "Ashknight — Mid Bot Developer"
 description: "Mid Bot Developer (JavaScript). Building chatbots, automation bots, and integrations."
-theme: jekyll-theme-cayman
-
-# Untuk user pages: https://USERNAME.github.io
 baseurl: ""
 url: "https://qinshiro.github.io"
+github_username: Qinshiro
 
+# Build settings
+markdown: kramdown
+permalink: pretty
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Author settings
 author:
   name: "Ashknight"
   role: "Mid Bot Developer"
   location: "Indonesia (Asia/Jakarta)"
   bio: "Spesialis pengembangan bot Discord dengan fokus pada fungsionalitas yang powerful dan mudah digunakan."
 
-# Kontak Support
+# Social media links
 social:
   instagram: "https://instagram.com/sancayw_"
   discord_server: "https://discord.gg/WkGYZYZ3Sn"
   github: "https://github.com/Qinshiro"
   email: "mailto:gtpsash@gmail.com"
 
-# Proyek Bot
-bots:
+# Bot projects
+projects:
   - name: "UtilityBot"
     description: "Bot serbaguna untuk manajemen server dan automasi"
+    status: "Aktif"
+    tech: ["Node.js", "Discord.js", "MongoDB"]
+    
+  - name: "MusicMaster"
+    description: "Bot musik dengan kualitas streaming tinggi"
     status: "Dalam Pengembangan"
+    tech: ["Node.js", "Discord.js", "Lavalink"]
 
-#  - name: "MusicMaster"
-#    description: "Bot musik dengan kualitas streaming tinggi"
-#    status: "Dalam Pengembangan"
+# Skills data
+skills:
+  core:
+    - name: "JavaScript ES6+"
+      level: 95
+    - name: "Node.js"
+      level: 90
+    - name: "Discord.js v14"
+      level: 92
+  
+  database:
+    - name: "MongoDB"
+      level: 85
+    - name: "REST APIs"
+      level: 88
+    - name: "Git & GitHub"
+      level: 90
+  
+  features:
+    - name: "Music Systems"
+      level: 87
+    - name: "Economy Systems"
+      level: 90
+    - name: "Dashboard Web"
+      level: 80
 
+# Stats
+stats:
+  - number: "50+"
+    text: "Bot Terpasang"
+  - number: "99.8%"
+    text: "Uptime"
+  - number: "24/7"
+    text: "Support"
 
-# SEO dasar
+# Site settings
 lang: "id-ID"
 timezone: "Asia/Jakarta"
-plugins:
-  - jekyll-seo-tag
-  - jekyll-sitemap
+google_analytics: ""  # Isi dengan GA ID jika ada
