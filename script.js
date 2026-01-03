@@ -1,384 +1,301 @@
-// DOM Elements
-const themeToggle = document.querySelector('.theme-toggle');
-const themeIcon = document.getElementById('theme-icon');
-const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('.nav-links');
-const backToTopBtn = document.getElementById('back-to-top');
-const contactForm = document.getElementById('contactForm');
-const formMessage = document.getElementById('form-message');
-const currentYear = document.getElementById('current-year');
-const typewriterText = document.getElementById('typewriter-text');
-const projectsContainer = document.getElementById('projects-container');
-const filterButtons = document.querySelectorAll('.filter-btn');
+// Main JavaScript for Dynamic Portfolio Website
 
-// Projects Data
-const projects = [
-    {
-        id: 1,
-        title: "Discord Music Bot",
-        description: "Advanced music bot with playlist support, queue management, and multiple audio sources. Features include volume control, equalizer, and lyric integration.",
-        type: "discord",
-        technologies: ["Node.js", "Discord.js", "FFmpeg", "YouTube API", "Lavalink"],
-        status: "completed"
-    },
-    {
-        id: 2,
-        title: "Server Automation Bot",
-        description: "Comprehensive automation bot for Discord server management. Includes auto-moderation, leveling system, welcome messages, and custom commands.",
-        type: "automation",
-        technologies: ["JavaScript", "MongoDB", "Discord.js", "Express.js"],
-        status: "completed"
-    },
-    {
-        id: 3,
-        title: "Multi-purpose Discord Bot",
-        description: "Feature-rich bot with 100+ commands including moderation, utilities, games, and API integrations. Serves over 5000 users across multiple servers.",
-        type: "discord",
-        technologies: ["Node.js", "Discord.js", "REST API", "SQLite", "Canvas"],
-        status: "completed"
-    },
-    {
-        id: 4,
-        title: "AI Chatbot Integration",
-        description: "Intelligent chatbot using natural language processing for customer service automation. Integrates with multiple messaging platforms.",
-        type: "chatbot",
-        technologies: ["Python", "TensorFlow", "FastAPI", "WebSocket", "Redis"],
-        status: "in-progress"
-    },
-    {
-        id: 5,
-        title: "Social Media Automation",
-        description: "Bot for automating social media tasks including content posting, engagement tracking, and analytics reporting.",
-        type: "automation",
-        technologies: ["JavaScript", "Puppeteer", "Twitter API", "Instagram API", "MongoDB"],
-        status: "completed"
-    },
-    {
-        id: 6,
-        title: "E-commerce Discord Bot",
-        description: "Custom bot for Discord-based e-commerce communities. Features product listings, shopping carts, and secure payment integration.",
-        type: "discord",
-        technologies: ["Node.js", "Stripe API", "MongoDB", "Discord.js", "React"],
-        status: "in-progress"
-    }
-];
-
-// Typewriter Effect
-const typewriterStrings = [
-    "Mid Bot Developer",
-    "JavaScript Specialist",
-    "Discord Bot Developer",
-    "Automation Expert",
-    "Chatbot Creator"
-];
-
-let typewriterIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-let typewriterSpeed = 100;
-
-function typeWriterEffect() {
-    const currentString = typewriterStrings[typewriterIndex];
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize all functionalities
+    initNavbar();
+    initScrollAnimations();
+    initSkillBars();
+    initStatsCounter();
+    initContactForm();
+    initBackToTop();
+    initCurrentYear();
     
-    if (!isDeleting && charIndex <= currentString.length) {
-        typewriterText.textContent = currentString.substring(0, charIndex);
-        charIndex++;
-        typewriterSpeed = 100;
-    } else if (isDeleting && charIndex >= 0) {
-        typewriterText.textContent = currentString.substring(0, charIndex);
-        charIndex--;
-        typewriterSpeed = 50;
-    }
-    
-    if (!isDeleting && charIndex === currentString.length + 1) {
-        isDeleting = true;
-        typewriterSpeed = 1500; // Pause at end
-    } else if (isDeleting && charIndex === -1) {
-        isDeleting = false;
-        typewriterIndex = (typewriterIndex + 1) % typewriterStrings.length;
-        typewriterSpeed = 500; // Pause before starting new word
-    }
-    
-    setTimeout(typeWriterEffect, typewriterSpeed);
-}
-
-// Animate Stats Counter
-function animateStats() {
-    const stats = document.querySelectorAll('.stat-number');
-    
-    stats.forEach(stat => {
-        const target = parseInt(stat.textContent);
-        let current = 0;
-        const increment = target / 100;
-        const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-                stat.textContent = target + "+";
-                clearInterval(timer);
-            } else {
-                stat.textContent = Math.floor(current) + "+";
-            }
-        }, 20);
-    });
-}
-
-// Render Projects
-function renderProjects(filter = 'all') {
-    projectsContainer.innerHTML = '';
-    
-    const filteredProjects = filter === 'all' 
-        ? projects 
-        : projects.filter(project => project.type === filter);
-    
-    filteredProjects.forEach(project => {
-        const projectCard = document.createElement('div');
-        projectCard.className = 'project-card';
-        projectCard.setAttribute('data-type', project.type);
-        
-        let statusBadge = '';
-        if (project.status === 'in-progress') {
-            statusBadge = '<span class="project-type" style="background: rgba(255, 189, 46, 0.2); color: #ffbd2e;">In Progress</span>';
-        } else {
-            statusBadge = '<span class="project-type">Completed</span>';
-        }
-        
-        projectCard.innerHTML = `
-            <div class="project-header">
-                <h3 class="project-title">${project.title}</h3>
-                ${statusBadge}
-            </div>
-            <div class="project-body">
-                <p class="project-description">${project.description}</p>
-                <div class="project-tech">
-                    ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
-                </div>
-            </div>
-        `;
-        
-        projectsContainer.appendChild(projectCard);
-    });
-}
-
-// Filter Projects
-function setupProjectFilters() {
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            // Add active class to clicked button
-            button.classList.add('active');
-            // Filter projects
-            const filter = button.getAttribute('data-filter');
-            renderProjects(filter);
-        });
-    });
-}
-
-// Animate Skill Bars
-function animateSkillBars() {
-    const skillLevels = document.querySelectorAll('.skill-level');
-    
-    skillLevels.forEach(skill => {
-        const level = skill.getAttribute('data-level');
-        skill.style.width = `${level}%`;
-    });
-}
-
-// Theme Toggle
-function toggleTheme() {
-    const currentTheme = document.body.getAttribute('data-theme');
-    
-    if (currentTheme === 'light') {
-        document.body.removeAttribute('data-theme');
-        themeIcon.classList.remove('fa-sun');
-        themeIcon.classList.add('fa-moon');
-        localStorage.setItem('theme', 'dark');
-    } else {
-        document.body.setAttribute('data-theme', 'light');
-        themeIcon.classList.remove('fa-moon');
-        themeIcon.classList.add('fa-sun');
-        localStorage.setItem('theme', 'light');
-    }
-}
-
-// Check for saved theme preference
-function checkSavedTheme() {
-    const savedTheme = localStorage.getItem('theme');
-    
-    if (savedTheme === 'light') {
-        document.body.setAttribute('data-theme', 'light');
-        themeIcon.classList.remove('fa-moon');
-        themeIcon.classList.add('fa-sun');
-    }
-}
-
-// Mobile Menu Toggle
-function toggleMobileMenu() {
-    navLinks.classList.toggle('active');
-}
-
-// Back to Top Button
-function toggleBackToTop() {
-    if (window.scrollY > 300) {
-        backToTopBtn.classList.add('show');
-    } else {
-        backToTopBtn.classList.remove('show');
-    }
-}
-
-function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-}
-
-// Smooth Scroll for Navigation Links
-function setupSmoothScroll() {
+    // Add smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
             
             const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
+            if(targetId === '#') return;
             
             const targetElement = document.querySelector(targetId);
-            if (targetElement) {
+            if(targetElement) {
                 // Close mobile menu if open
-                navLinks.classList.remove('active');
+                const navMenu = document.querySelector('.nav-menu');
+                const hamburger = document.querySelector('.hamburger');
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
                 
+                // Scroll to target
                 window.scrollTo({
                     top: targetElement.offsetTop - 80,
                     behavior: 'smooth'
                 });
-                
-                // Update active nav link
-                document.querySelectorAll('.nav-link').forEach(link => {
-                    link.classList.remove('active');
-                });
-                this.classList.add('active');
             }
         });
     });
+    
+    // Add active class to nav links based on scroll position
+    window.addEventListener('scroll', highlightNavLink);
+    
+    // Initialize animations on load
+    setTimeout(() => {
+        document.body.classList.add('loaded');
+    }, 100);
+});
+
+// Navbar functionality
+function initNavbar() {
+    const navbar = document.querySelector('.navbar');
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    // Toggle mobile menu
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if(!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }
+    });
+    
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+        if(window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
 }
 
-// Update active nav link on scroll
-function updateActiveNavLink() {
+// Highlight active nav link based on scroll position
+function highlightNavLink() {
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-link');
     
-    let currentSection = '';
+    let current = '';
     
     sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
+        const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
         
-        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-            currentSection = section.getAttribute('id');
+        if(window.scrollY >= (sectionTop - 100)) {
+            current = section.getAttribute('id');
         }
     });
     
     navLinks.forEach(link => {
         link.classList.remove('active');
-        if (link.getAttribute('href') === `#${currentSection}`) {
+        if(link.getAttribute('href') === `#${current}`) {
             link.classList.add('active');
         }
     });
 }
 
-// Handle Contact Form Submission
-function handleContactForm(e) {
-    e.preventDefault();
+// Scroll animations for elements
+function initScrollAnimations() {
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
     
-    // Get form values
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const subject = document.getElementById('subject').value;
-    const message = document.getElementById('message').value;
-    
-    // Simple validation
-    if (!name || !email || !message) {
-        showFormMessage('Please fill in all required fields.', 'error');
-        return;
-    }
-    
-    // Simulate form submission
-    showFormMessage('Message sent successfully! I will get back to you soon.', 'success');
-    
-    // Reset form
-    contactForm.reset();
-    
-    // In a real application, you would send the data to a server here
-    console.log('Contact form submitted:', { name, email, subject, message });
-}
-
-function showFormMessage(text, type) {
-    formMessage.textContent = text;
-    formMessage.className = `form-message ${type}`;
-    
-    setTimeout(() => {
-        formMessage.textContent = '';
-        formMessage.className = 'form-message';
-    }, 5000);
-}
-
-// Set current year in footer
-function setCurrentYear() {
-    currentYear.textContent = new Date().getFullYear();
-}
-
-// Initialize all animations and interactions
-function init() {
-    // Set current year
-    setCurrentYear();
-    
-    // Check for saved theme
-    checkSavedTheme();
-    
-    // Start typewriter effect
-    typeWriterEffect();
-    
-    // Render projects
-    renderProjects();
-    
-    // Setup project filters
-    setupProjectFilters();
-    
-    // Animate skill bars on scroll
-    const skillsSection = document.querySelector('.skills-section');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateSkillBars();
-                animateStats();
-                observer.unobserve(entry.target);
+            if(entry.isIntersecting) {
+                entry.target.classList.add('animated');
+            }
+        });
+    }, observerOptions);
+    
+    // Observe elements to animate
+    document.querySelectorAll('.stat-card, .project-card, .skill-category').forEach(el => {
+        observer.observe(el);
+    });
+}
+
+// Animate skill bars
+function initSkillBars() {
+    const skillBars = document.querySelectorAll('.skill-level');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                const skillLevel = entry.target;
+                const level = skillLevel.getAttribute('data-level');
+                
+                // Animate skill bar width
+                setTimeout(() => {
+                    skillLevel.style.width = `${level}%`;
+                }, 300);
+                
+                observer.unobserve(skillLevel);
             }
         });
     }, { threshold: 0.5 });
     
-    if (skillsSection) {
-        observer.observe(skillsSection);
-    }
-    
-    // Setup event listeners
-    themeToggle.addEventListener('click', toggleTheme);
-    menuToggle.addEventListener('click', toggleMobileMenu);
-    backToTopBtn.addEventListener('click', scrollToTop);
-    window.addEventListener('scroll', () => {
-        toggleBackToTop();
-        updateActiveNavLink();
+    skillBars.forEach(bar => {
+        observer.observe(bar);
     });
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', handleContactForm);
-    }
-    
-    // Setup smooth scroll
-    setupSmoothScroll();
-    
-    // Initialize back to top button visibility
-    toggleBackToTop();
 }
 
-// Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', init);
+// Animated counter for stats
+function initStatsCounter() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                const statNumber = entry.target;
+                const target = parseInt(statNumber.getAttribute('data-target'));
+                const suffix = statNumber.textContent.includes('%') ? '%' : '';
+                const duration = 1500; // Animation duration in ms
+                const step = target / (duration / 16); // 60fps
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += step;
+                    if(current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    statNumber.textContent = Math.floor(current) + suffix;
+                }, 16);
+                
+                observer.unobserve(statNumber);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    statNumbers.forEach(number => {
+        observer.observe(number);
+    });
+}
+
+// Contact form functionality
+function initContactForm() {
+    const contactForm = document.getElementById('messageForm');
+    
+    if(contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // In a real implementation, you would send this data to a server
+            // For demo purposes, we'll just show a success message
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            
+            // Show loading state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Show success message
+                alert(`Thank you, ${name}! Your message has been sent.\n\nIn a real implementation, this would be sent to my email. For now, please contact me directly via the social links above.`);
+                
+                // Reset form
+                contactForm.reset();
+                
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 1500);
+        });
+    }
+}
+
+// Back to top button
+function initBackToTop() {
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+        if(window.scrollY > 300) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
+    });
+    
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+// Set current year in footer
+function initCurrentYear() {
+    const yearElement = document.getElementById('currentYear');
+    if(yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
+}
+
+// Bot eye animation for fun
+function animateBotEyes() {
+    const leftEye = document.querySelector('.left-eye');
+    const rightEye = document.querySelector('.right-eye');
+    
+    setInterval(() => {
+        // Randomly blink
+        if(Math.random() > 0.7) {
+            leftEye.style.height = '5px';
+            rightEye.style.height = '5px';
+            
+            setTimeout(() => {
+                leftEye.style.height = '30px';
+                rightEye.style.height = '30px';
+            }, 200);
+        }
+        
+        // Randomly move eyes horizontally
+        const leftPos = 25 + Math.random() * 20;
+        const rightPos = 65 + Math.random() * 20;
+        
+        leftEye.style.left = `${leftPos}px`;
+        rightEye.style.right = `${100 - rightPos}px`;
+        
+    }, 3000);
+}
+
+// Initialize bot eye animation after page loads
+window.addEventListener('load', () => {
+    setTimeout(animateBotEyes, 1000);
+});
+
+// Add typing effect to hero subtitle (optional)
+function initTypingEffect() {
+    const heroSubtitle = document.querySelector('.hero-subtitle');
+    if(heroSubtitle) {
+        const text = heroSubtitle.textContent;
+        heroSubtitle.textContent = '';
+        
+        let i = 0;
+        const typeWriter = () => {
+            if(i < text.length) {
+                heroSubtitle.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 50);
+            }
+        };
+        
+        // Start typing after a short delay
+        setTimeout(typeWriter, 1000);
+    }
+}
+
+// Uncomment the line below to enable typing effect on hero subtitle
+// initTypingEffect();
